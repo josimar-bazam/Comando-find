@@ -1,4 +1,4 @@
-# Comando-find
+# Comondo - find
 
 Usando o comando find para listar extensão de arquivos.
 
@@ -39,12 +39,16 @@ $ find .
 ./.gitignore
 ./migrations_btg
 ./migrations_abc/CLIENT_TESTE_APP1
-./migrations_abc/CLIENT_TESTE_APP1/001_UAT
-./migrations_abc/CLIENT_TESTE_APP1/001_UAT/000_ROLLBACK.sql
-./migrations_abc/CLIENT_TESTE_APP1/001_UAT/000_TB_EXECUTE_MESSAGE.sql
-./migrations_abc/CLIENT_TESTE_APP1/001_UAT/001_create_teste.sql
-./migrations_abc/CLIENT_TESTE_APP1
-./migrations_abc/CLIENT_TESTE_APP1/001/009_create_tb_inv_pre_operacao_rf_aplicacao.sql
-./migrations_abc/CLIENT_TESTE_APP1/001/010_alter_tb_inv_operacao_status.sql
+
+Removendo todos os arquivos uma determinada extensão:
+
+Exemplo, na pasta /user/ tem um arquivo com a extensão .xml
+
+$ find user/ -name *.xml -exec rm {} \;
+
+Através do exemplo acima, serão localizados todos os arquivos com extensão .xml, dentro do diretório “/user/”. 
+Podemos, alterar “*.xml” por qualquer outra extensão de arquivo, como por exemplo “*.png”, “*.css”, “*.html” e entre outros.
+
+
 
 ```
