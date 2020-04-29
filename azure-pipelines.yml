@@ -1,0 +1,18 @@
+# Powershell Task - Conviso Deploy Integration
+
+steps:
+  - checkout: self
+    persistCredentials: true
+  - task: PowerShell@2
+    displayName: "Deploy Test Edited"
+    inputs:
+      targetType: 'inline'
+      pwsh: true
+      script: |
+        git config --global user.email "jbazam@conviso.com.br" 
+        git config --global user.name "jbazam"
+        git tag -a deploy-$Env:BUILD_BUILDNUMBER -m 'deploy'
+        git push origin --tags
+        Invoke-WebRequest 'https://s3-sa-east-1.amazonaws.com/armature-files-production/scripts/flow-deploy-pusher.ps1' -UseBasicParsing -OutFile 'flow-deploy-pusher.ps1'
+
+        ./flow-deploy-pusher.ps1 BKarBnDcT7QnfYhG
