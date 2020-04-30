@@ -11,7 +11,7 @@ steps:
       script: |
         git config --global user.email "jbazam@conviso.com.br" 
         git config --global user.name "jbazam"
-        git tag -a deploy-$Env:BUILD_BUILDNUMBER -m 'deploy'
+        git tag -a deploy-$Env:BUILD_BUILDNUMBER -m 'ABCD'
         git push origin --tags
         Invoke-WebRequest 'https://s3-sa-east-1.amazonaws.com/armature-files-production/scripts/flow-deploy-pusher.ps1' -UseBasicParsing -OutFile 'flow-deploy-pusher.ps1'
 
