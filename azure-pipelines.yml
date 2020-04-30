@@ -4,7 +4,7 @@ steps:
   - checkout: self
     persistCredentials: true
   - task: PowerShell@2
-    displayName: "Deploy Test Edited"
+    displayName: "deploy-2"
     inputs:
       targetType: 'inline'
       pwsh: true
